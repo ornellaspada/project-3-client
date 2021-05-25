@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 
+import Map from '../src/components/places/PlacesMap'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <h1>{place.name}</h1>
         </div>
       ))}
+      <Map />
     </>
   )
 }
