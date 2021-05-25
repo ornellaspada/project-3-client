@@ -10,7 +10,7 @@ function App() {
     const getData = async () => {
       const res = await axios.get('/api/places')
       setPlaces(res.data)
-      console.log(places)
+      console.log(res.data)
     }
     getData()
   }, [])
