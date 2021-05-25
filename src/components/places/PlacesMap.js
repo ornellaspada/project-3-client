@@ -32,7 +32,7 @@ function Map() {
         mapboxApiAccessToken={'pk.eyJ1IjoiZ3Vyc2hhbTIwMDEiLCJhIjoiY2twM3htaXFrMWVzdTJwbXc5cHNyc2U2ZSJ9.9elQEezX5LNrj6WyetkYFw'} >
         {places.map(place => (
           <div key={place._id}>
-            <Marker longitude={place.long} latitude={place.lat}  offsetLeft={-0} offsetTop={-0}>
+            <Marker longitude={place.long} latitude={place.lat}>
               <button> 📍 </button>
             </Marker>
           </div>
