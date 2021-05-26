@@ -27,7 +27,8 @@ function Map() {
     <>
       <ReactMapGL
         {...viewport} 
-        // width="100vw" height="100vh"
+        width="100vw" 
+        height="100vh"
         onViewportChange={nextViewport => setViewport(nextViewport)}
         mapboxApiAccessToken={'pk.eyJ1IjoiZ3Vyc2hhbTIwMDEiLCJhIjoiY2twM3htaXFrMWVzdTJwbXc5cHNyc2U2ZSJ9.9elQEezX5LNrj6WyetkYFw'} >
         {places.map(place => (

@@ -3,10 +3,12 @@ import axios from 'axios'
 
 import { getToken } from './auth'
 
-const baseUrl = 'http://localhost:3000/api/'
+const baseUrl = '/api'
 
 function headers() {
+  console.log(getToken())
   return {
+    
     headers: { Authorization: `Bearer ${getToken()}` },
   }
 }
@@ -20,6 +22,7 @@ export function getSinglePlace(placeId) {
 }
 
 export function createPlace(formData) {
+  console.log(`${baseUrl}/places`, formData, headers())
   return axios.post(`${baseUrl}/places`, formData, headers())
 }
 

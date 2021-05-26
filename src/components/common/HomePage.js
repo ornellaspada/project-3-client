@@ -47,7 +47,7 @@ function Home() {
       </section>
       <section className="hero is-small is-primary">
         <div className="hero-body">
-          <input onChange={handleChange} type="text" placeholder="Search a place!" />
+          <input type="text" placeholder="Search a place!" />
         </div>
       </section>
       <section>
@@ -63,7 +63,7 @@ function Home() {
                   <img src={place.image} alt={place.name} />
                 </figure>
                 <p>{place.area}</p>
-                <p>{‘:star:️ ’.repeat(place.rating)}</p>
+                <p>{'⭐️ '.repeat(place.rating)}</p>
               </div>
             ))}
           </div>
