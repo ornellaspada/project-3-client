@@ -78,7 +78,9 @@ function PlaceShow() {
                 </h6>
                 <hr />
                 <p>
-                ⭐️ ⭐️ ⭐️ ⭐️ ⭐️
+                
+                  {'⭐️ '.repeat(place.rating)}
+
                 </p>
                 <hr />
                 {isOwner(place.user._id) && (
