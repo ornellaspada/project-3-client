@@ -1,7 +1,7 @@
 // import axios from 'axios'
 import React from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
-
+import PlaceShow from '../src/components/places/PlaceShow'
 // import Map from '../src/components/places/PlacesMap'
 
 import Home from './components/common/HomePage'
@@ -25,6 +25,7 @@ function App() {
         {/* <Nav /> */}
         <Switch>
           < Route exact path='/' component={ Home } />
+          <Route path="/places/:placeId" component={PlaceShow} />
         </Switch>
       </BrowserRouter>
     </>
