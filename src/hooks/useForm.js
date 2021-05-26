@@ -1,20 +1,28 @@
 import React from 'react'
 
-export function useForm(initialFormdata){
-  const [formdata, setFormdata] = React.useState(initialFormdata)
-  const [formErrors, setFormErrors] = React.useState(initialFormdata)
+export function useForm(initialFormData){
+  const [formData, setFormData] = React.useState(initialFormData)
+  const [formErrors, setFormErrors] = React.useState(initialFormData)
 
-  const handleChange = (e)=>{
+  const handleChange = (e) => {
   // console.log('typing', e.target.name, e.target.value)
-    setFormdata({ ...formdata, [e.target.name]: e.target.value })
+
+
+    if (e.target.name === 'lat' || e.target.name === 'long') {
+      setFormData({ ...formData, [e.target.name]: Number(e.target.value) })
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value })
+    }
+
     setFormErrors({ ...formErrors, [e.target.name]: '' })
+
   }
   return {
-    formdata,
+    formData,
     formErrors,
     handleChange,
     setFormErrors,
-    setFormdata,
+    setFormData,
   }
 }
 export default useForm

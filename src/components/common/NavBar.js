@@ -48,7 +48,7 @@ function NavBar() {
             className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                {isLoggedIn && <Link to ='/places' className='button is-white'>
+                {isLoggedIn && <Link to ='/places/new' className='button is-white'>
           Create a place
                 </Link>}
                 {isLoggedIn && <Link to ='/favorites' className='button is-white'>
