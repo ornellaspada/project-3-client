@@ -6,11 +6,11 @@ export function getToken() {
   return window.localStorage.getItem('token')
 }
 
-export function removeToken() {
+export function remove() {
   window.localStorage.removeItem('token')
 }
 
-function getPayload() {
+function getPayLoad() {
   const token = getToken()
   if (!token) return false
   const parts = token.split('.')
@@ -18,9 +18,15 @@ function getPayload() {
   return JSON.parse(atob(parts[1]))
 }
 
+export function isAuthorized() {
+  const payload = getPayLoad()
+  if (!payload) return false
+  const now = Math.round(Date.now() / 1000)
+  return now < payload.exp
+}
 
 export function isOwner(userId) {
-  const payload = getPayload()
+  const payload = getPayLoad()
   if (!payload) return false
   return userId === payload.sub
 }
