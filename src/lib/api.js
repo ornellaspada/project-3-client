@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getToken } from './auth'
 
-const baseUrl = 'http://localhost:4000'
+const baseUrl = 'http://localhost:3000/api/'
 
 function headers() {
   return {

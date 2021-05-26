@@ -28,6 +28,7 @@ function PlaceShow() {
   }
 
   return (
+
     <section className="section">
       <div className="container">
         {isError && <Error />}
@@ -75,10 +76,9 @@ function PlaceShow() {
                       to={`/places/${place._id}/edit`}
                       className="button is-warning"
                     >
-                      Edit this Cheese
                     </Link>
                     <button onClick={handleDelete} className="button is-danger">
-                      Delete this Cheese
+                      Delete this 
                     </button>
                   </div>
                 )}
