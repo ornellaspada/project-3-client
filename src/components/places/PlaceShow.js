@@ -46,29 +46,40 @@ function PlaceShow() {
               <div className="column is-half">
                 <h4 className="title is-4">
                   <span role="img" aria-label="plate">
-                    🍽
+                    🏆
                   </span>{' '}
-                  Tasting Notes
+                  Description
                 </h4>
-                <p>{place.tastingNotes}</p>
+                <p>{place.description}</p>
                 <hr />
                 <h4 className="title is-4">
                   <span role="img" aria-label="globe">
-                    🌍
+                    📍
                   </span>{' '}
-                  Origin
+                  Adress
                 </h4>
                 <hr />
-                <p>{place.origin}</p>
+                <p>{place.address}, {place.postcode}</p>
                 <hr />
-                <h4 className="title is-4">
+                <h6 className="title is-4">
                   <span role="img" aria-label="wave">
                     🖐
                   </span>{' '}
                   Added By
-                </h4>
+                </h6>
                 <hr />
                 <p>{place.user.username}</p>
+                <hr />
+                <h6 className="title is-4">
+                  <span role="img" aria-label="wave">
+                    🚀
+                  </span>{' '}
+                  Rating
+                </h6>
+                <hr />
+                <p>
+                ⭐️ ⭐️ ⭐️ ⭐️ ⭐️
+                </p>
                 <hr />
                 {isOwner(place.user._id) && (
                   <div className="buttons">
