@@ -2,6 +2,7 @@ import * as React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import ReactMapGL, { Marker } from 'react-map-gl'
+import { Link } from 'react-router-dom'
 
 function Map() {
   const [viewport, setViewport] = useState({
@@ -23,6 +24,8 @@ function Map() {
     getData()
   }, [])
 
+
+
   return (
     <>
       <ReactMapGL
@@ -33,12 +36,12 @@ function Map() {
         {places.map(place => (
           <div key={place._id}>
             <Marker longitude={place.long} latitude={place.lat}>
-              <button> 📍 </button>
+              <Link to={`/places/${place._id}`}>
+                <button> 📍 </button>
+              </Link>
             </Marker>
           </div>
         ))}
-
-
       </ReactMapGL>
     </>
   )

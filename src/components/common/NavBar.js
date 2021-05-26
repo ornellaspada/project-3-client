@@ -40,7 +40,7 @@ function NavBar() {
         </div>
         <div className={`navbar-menu ${isOpen ? 'is-active' : ''}`}>
           <div className="navbar-start">
-            <Link to="/map" className="navbar-item" href='/'>
+            <Link to="/places/map" className="navbar-item" href='/'>
               Map
             </Link>
           </div>
