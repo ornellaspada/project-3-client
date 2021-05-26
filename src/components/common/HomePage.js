@@ -4,7 +4,7 @@ import { getPlacesWithFiveStars } from '../../lib/api'
 function Home() {
 
   const [ places, setPlaces ] = React.useState([])
-  const [loading, setLoading] = React.useState(false)
+  const [ loading, setLoading ] = React.useState(false)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -28,19 +28,31 @@ function Home() {
     return <div className="loading-message">Loading... Mindblowing places will appear in just a moment!</div>
   }
 
+  // ? Search logic
+  // const handleSubmit = async (e) => {
+  //   try {
+
+  //   } catch (e) {
+
+  //   }
+  // }
+
   return (
     <>
-      <section> 
-        <div> 
-          <h1>Trippy | Alternative places to visit in London</h1>
+      <section className="hero is-small is-link"> 
+        <div className="hero-head"> 
+          <p className="title">Trippy</p>
+          <p className="subtitle">Alternative places to visit in London</p>
         </div>
-        <div>
-          <input type="text" placeholder="Search a place!" />
+      </section>
+      <section className="hero is-small is-primary">
+        <div className="hero-body">
+          <input onChange={handleChange} type="text" placeholder="Search a place!" />
         </div>
       </section>
       <section>
         <div>
-          <h1>Our top 10 of places to visit</h1>
+          <h1>Our favourite places to visit</h1>
         </div>
         <div>
           <div>
@@ -51,7 +63,7 @@ function Home() {
                   <img src={place.image} alt={place.name} />
                 </figure>
                 <p>{place.area}</p>
-                <p>{place.rating}</p>
+                <p>{‘:star:️ ’.repeat(place.rating)}</p>
               </div>
             ))}
           </div>
