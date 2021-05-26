@@ -5,7 +5,7 @@ export function useForm(initialFormData){
   const [formErrors, setFormErrors] = React.useState(initialFormData)
 
   const handleChange = (e) => {
-  // console.log('typing', e.target.name, e.target.value)
+    console.log('typing', e.target.name, e.target.value)
 
 
     if (e.target.name === 'lat' || e.target.name === 'long') {

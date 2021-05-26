@@ -25,7 +25,10 @@ function NavBar() {
       <div className='container'>
         <div className='navbar-brand'> 
           <Link to = '/' className='navbar-item'>
-        Home
+              Home
+          </Link>
+          <Link to="/map" className="navbar-item" href='/'>
+              Map
           </Link>
           <span
             className={`navbar-burger ${isOpen ? 'is-active' : ''}`}
@@ -39,11 +42,6 @@ function NavBar() {
           </span>
         </div>
         <div className={`navbar-menu ${isOpen ? 'is-active' : ''}`}>
-          <div className="navbar-start">
-            <Link to="/map" className="navbar-item" href='/'>
-              Map
-            </Link>
-          </div>
           <div 
             className="navbar-end">
             <div className="navbar-item">
