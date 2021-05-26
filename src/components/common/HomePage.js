@@ -63,7 +63,7 @@ function Home() {
                   <img src={place.image} alt={place.name} />
                 </figure>
                 <p>{place.area}</p>
-                <p>{'⭐️ '.repeat(place.rating)}</p>
+                <p>{ '⭐️ '.repeat(place.rating)}</p>
               </div>
             ))}
           </div>
