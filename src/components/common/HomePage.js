@@ -47,7 +47,7 @@ function Home() {
       </section>
       <section className="hero is-small is-primary">
         <div className="hero-body">
-          <input  type="text" placeholder="Search a place!" />
+          <input type="text" placeholder="Search a place!" />
         </div>
       </section>
       <section>
