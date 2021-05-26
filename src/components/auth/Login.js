@@ -8,7 +8,7 @@ function Login(){
   const history = useHistory()
   const [isError, setIsError] = React.useState(false)
 
-  const { formdata, handleChange } = useForm({
+  const { formData, handleChange } = useForm({
     email: '',
     password: '', 
   })
@@ -17,7 +17,7 @@ function Login(){
     e.preventDefault()
   
     try {
-      const res = await axios.post('http://localhost:3000/api/login', formdata)
+      const res = await axios.post('/api/login', formData)
       console.log(res)
       setToken(res.data.token)
       history.push('/map')

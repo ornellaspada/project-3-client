@@ -2,6 +2,7 @@ import * as React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import ReactMapGL, { Marker } from 'react-map-gl'
+import { Link } from 'react-router-dom'
 
 function Map() {
   const [viewport, setViewport] = useState({
@@ -23,22 +24,25 @@ function Map() {
     getData()
   }, [])
 
+
+
   return (
     <>
       <ReactMapGL
         {...viewport} 
-        // width="100vw" height="100vh"
+        width="100vw" 
+        height="100vh"
         onViewportChange={nextViewport => setViewport(nextViewport)}
         mapboxApiAccessToken={'pk.eyJ1IjoiZ3Vyc2hhbTIwMDEiLCJhIjoiY2twM3htaXFrMWVzdTJwbXc5cHNyc2U2ZSJ9.9elQEezX5LNrj6WyetkYFw'} >
         {places.map(place => (
           <div key={place._id}>
             <Marker longitude={place.long} latitude={place.lat}>
-              <button> 📍 </button>
+              <Link to={`/places/${place._id}`}>
+                <button> 📍 </button>
+              </Link>
             </Marker>
           </div>
         ))}
-
-
       </ReactMapGL>
     </>
   )

@@ -5,7 +5,7 @@ import { useForm } from '../../hooks/useForm'
 
 function Register (){
   const history = useHistory()
-  const { formdata, formErrors, handleChange, setFormErrors } = useForm({
+  const { formData, formErrors, handleChange, setFormErrors } = useForm({
     
   })
   
@@ -15,8 +15,8 @@ function Register (){
 
     try {
       // const res = 
-      console.log(formdata)
-      const response = await axios.post('http://localhost:3000/api/register', formdata) 
+      console.log(formData)
+      const response = await axios.post('/api/register', formData) 
       console.log(response)
       history.push('/login')
     }  catch  (err) {
@@ -36,7 +36,7 @@ function Register (){
               <div className="control">
                 <input className={`input ${formErrors.username ? 'is-danger' : '' } `}
                   name="username" id="username" onChange={handleChange}
-                  value={formdata.username} />
+                  value={formData.username} />
               </div>
               {formErrors.username && <small  className='helpis-danger' >Username is required</small>}
             </div>
@@ -46,7 +46,7 @@ function Register (){
               <div className="control">
                 <input className={`input ${formErrors.email ? 'is-danger' : '' } `}
                   name="email" id="email" onChange={handleChange} 
-                  value={formdata.email}/>
+                  value={formData.email}/>
               </div>
               {formErrors.email && <small  className='help is-danger '> Email is required </small>}
             </div>
@@ -56,7 +56,7 @@ function Register (){
               <div className="control">
                 <input className={`input ${formErrors.emailConfirmation ? 'is-danger' : '' } `}
                   name="emailConfirmation" id="emailConfirmation" type="emailConfirmation" onChange={handleChange}
-                  value={formdata.emailConfirmation}/>
+                  value={formData.emailConfirmation}/>
               </div>
               {formErrors.emailConfirmation && <small  className='help is-danger '> Email Confirmation is required </small>}
             </div>
@@ -66,7 +66,7 @@ function Register (){
               <div className="control">
                 <input className={`input ${formErrors.password ? 'is-danger' : '' } `}
                   name="password" id="password" type="password" onChange={handleChange}
-                  value={formdata.password}/>
+                  value={formData.password}/>
               </div>
               {formErrors.password && <small  className='help is-danger '> Password is required </small>}
             </div>
@@ -76,7 +76,7 @@ function Register (){
               <div className="control">
                 <input className={`input ${formErrors.passwordConfirmation ? 'is-danger' : '' } `}
                   name="passwordConfirmation" id="passwordConfirmation" type="password" onChange={handleChange}
-                  value={formdata.passwordConfirmation}/>
+                  value={formData.passwordConfirmation}/>
               </div>
               {formErrors.passwordConfirmation && <small  className='help is-danger '> Password Confirmation is required </small>}
             </div>

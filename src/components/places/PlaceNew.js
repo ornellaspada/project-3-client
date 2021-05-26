@@ -30,12 +30,14 @@ function CreateNewPlace() {
       const res = await createPlace(formData)
       history.push(`/places/${res.data._id}`)
     } catch (error) {
-      setFormErrors(error.response.data.errors)
+      alert(error.response.data.message)
+      setFormErrors(error.response.data.message)
     }
     
 
   }
-
+  console.log(formData)
+  console.log(formErrors)
   return (
     <section className='section'>
       <div className='container'>
@@ -53,6 +55,7 @@ function CreateNewPlace() {
                   placeholder='Name Of Place'
                   name='name'
                   onChange={handleChange}
+
                   // value={formData.name}
                 />
               </div>
@@ -64,7 +67,7 @@ function CreateNewPlace() {
               <label className='label'>Area</label>
               <div className='control'>
                 <input 
-                  className={`input ${formErrors.name ? 
+                  className={`input ${formErrors.area ? 
                     'is-danger' : '' }`}
                   placeholder='Area'
                   name='area'
