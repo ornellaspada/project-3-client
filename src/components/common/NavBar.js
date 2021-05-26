@@ -1,19 +1,19 @@
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import React from 'react'
-import { isAuthenticated, removeToken } from '../../lib/auth'
+import { isAuthorized, remove } from '../../lib/auth'
 
 function NavBar() {
   const history = useHistory()
   const location = useLocation()
   const [isOpen, setIsOpen] = React.useState(false)
-  const isLoggedIn = isAuthenticated()
+  const isLoggedIn = isAuthorized()
 
   const handleToggle = () => {
     setIsOpen(!isOpen)
     console.log('clicked')
   }
   const handleLogout = () =>{
-    removeToken()
+    remove()
     history.push('/')
   }
   React.useEffect(()=>{
@@ -54,17 +54,21 @@ function NavBar() {
                 {isLoggedIn && <Link to ='/favorites' className='button is-white'>
           My Fav
                 </Link>}
-                <Link to = '/login' className='navbar-item' href='/'>
-          Log In
+                {!isLoggedIn &&  <Link to ='/register' className='navbar-item' href='/'>
+                Register
                 </Link>
+                          
+            
+
+                }
                 {!isLoggedIn ?
                   <>
-                    <Link to ='/register' className='navbar-item' href='/'>
-          Register
-                    </Link>
+                    <Link to = '/login' className='navbar-item' href='/'>
+                  Log In
+                    </Link> 
                   </>
                   :
-                  <button className='button is-warning' onClick= {handleLogout}>
+                  <button className='button is-white' onClick= {handleLogout}>
                   Log out</button>
                 }
               </div>
