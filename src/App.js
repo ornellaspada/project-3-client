@@ -5,6 +5,9 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom'
 // import Map from '../src/components/places/PlacesMap'
 
 import Home from './components/common/HomePage'
+import NavBar from './components/common/NavBar'
+import Register from './components/auth/Register'
+import Login from './components/auth/Login'
 
 function App() {
 
@@ -22,9 +25,11 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <Nav /> */}
+        <NavBar /> 
         <Switch>
           < Route exact path='/' component={ Home } />
+          <Route path = '/register' component ={Register}/>
+          <Route path='/login' component={Login}/>
         </Switch>
       </BrowserRouter>
     </>
