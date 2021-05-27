@@ -26,3 +26,7 @@ export function createPlace(formData) {
 export function deletePlace(id) {
   return axios.delete(`${baseUrl}/places/${id}`, headers())
 }
+
+export function getCordinates(pc) {
+  return axios.get(`http://api.postcodes.io/postcodes/${pc}`)
+}
