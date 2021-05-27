@@ -23,6 +23,10 @@ export function createPlace(formData) {
   return axios.post(`${baseUrl}/places`, formData, headers())
 }
 
+export function editPlace(placeId, formData) {
+  return axios.put(`${baseUrl}/places/${placeId}`, formData, headers())
+}
+
 export function deletePlace(id) {
   return axios.delete(`${baseUrl}/places/${id}`, headers())
 }

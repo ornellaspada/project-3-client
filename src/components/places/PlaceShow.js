@@ -89,6 +89,7 @@ function PlaceShow() {
                       to={`/places/${place._id}/edit`}
                       className="button is-warning"
                     >
+                      Edit
                     </Link>
                     <button onClick={handleDelete} className="button is-danger">
                       Delete this 

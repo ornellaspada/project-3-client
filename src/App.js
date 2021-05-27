@@ -9,6 +9,7 @@ import Home from './components/common/HomePage'
 import NavBar from './components/common/NavBar'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
+import PlaceEdit from './components/places/PlaceEdit'
 // import { MapTouchEvent } from 'mapbox-gl'
 
 
@@ -36,6 +37,7 @@ function App() {
           <Route exact path='/map' component={PlaceMap} />
           <Route path="/places/new" component={PlaceNew} />
           <Route path="/places/map" component={Map} />
+          <Route path="/places/:placeId/edit" component={PlaceEdit} />
           <Route path="/places/:placeId" component={PlaceShow} />
         </Switch>
       </BrowserRouter>
