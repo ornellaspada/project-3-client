@@ -3,8 +3,10 @@ import { useParams, Link } from 'react-router-dom'
 import { getSinglePlace, deletePlace } from '../../lib/api'
 import { isOwner } from '../../lib/auth'
 import Error from '../common/Error'
+import { useHistory } from 'react-router'
 
 function PlaceShow() {
+  const history = useHistory()
   const { placeId } = useParams()
   const [place, setPlace] = React.useState(null)
   const [isError, setIsError] = React.useState(false)
@@ -24,8 +26,9 @@ function PlaceShow() {
 
   const handleDelete = async () => {
     await deletePlace(place._id)
-    history.push('/places')
+    history.push('/map')
   }
+
 
   return (
 
@@ -83,12 +86,13 @@ function PlaceShow() {
 
                 </p>
                 <hr />
+                
                 {isOwner(place.user._id) && (
                   <div className="buttons">
                     <Link
                       to={`/places/${place._id}/edit`}
                       className="button is-warning"
-                    >
+                    > Edit
                     </Link>
                     <button onClick={handleDelete} className="button is-danger">
                       Delete this place
