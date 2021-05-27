@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useState } from 'react'
-import axios from 'axios'
 import ReactMapGL, { Marker } from 'react-map-gl'
 import { Link } from 'react-router-dom'
+import { getAllPlaces } from '../../lib/api'
 
 function Map() {
   const [viewport, setViewport] = useState({
@@ -14,17 +14,20 @@ function Map() {
   })
 
   const [places, setPlaces] = React.useState([])
+  const [inHover, setHover] = React.useState('')
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/places')
+      const res = await getAllPlaces()
       setPlaces(res.data)
       console.log(res.data)
     }
     getData()
   }, [])
 
+  const handleMouseEnter = (e) => setHover(e.target.value)
 
+  const handleMouseLeave = () => setHover('')
 
   return (
     <>
@@ -38,7 +41,10 @@ function Map() {
           <div key={place._id}>
             <Marker longitude={place.long} latitude={place.lat}>
               <Link to={`/places/${place._id}`}>
-                <button> 📍 </button>
+                <div>
+                  <button value={place._id} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}> 📍 </button>
+                  {inHover === place._id && <p>{place.name}</p>}
+                </div>
               </Link>
             </Marker>
           </div>

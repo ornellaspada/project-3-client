@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router'
 import  { useForm }  from '../../hooks/useForm'
 import { createPlace } from '../../lib/api'
+import { getCordinates } from '../../lib/api'
 
 function CreateNewPlace() {
   const history = useHistory()
@@ -21,23 +22,28 @@ function CreateNewPlace() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+    const postCodeData = await getCordinates(formData.postcode)
+    const postCodeResult = await postCodeData.data.result
+    console.log(postCodeResult.latitude)
     console.log(formData)
     try {
       
-      // const convert = 
-
-      const res = await createPlace(formData)
+      const res = await createPlace( { 
+        ...formData, 
+        lat: Number(postCodeResult.latitude),
+        long: Number(postCodeResult.longitude),
+        area: postCodeResult.admin_ward,
+      })
       history.push(`/places/${res.data._id}`)
     } catch (error) {
       alert(error.response.data.message)
       setFormErrors(error.response.data.message)
     }
-    
-
+  
   }
+
+
   console.log(formData)
-  console.log(formErrors)
   return (
     <section className='section'>
       <div className='container'>
@@ -212,7 +218,7 @@ function CreateNewPlace() {
               </p>}
             </div>
             <div className='field'>
-              <button type='submit' className='button is-dark is-fullwidth'>
+              <button type='submit' className='button is-success is-fullwidth'>
                 Create a place!!! Lets Go!
               </button> 
             </div>

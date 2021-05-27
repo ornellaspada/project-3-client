@@ -11,6 +11,10 @@ function headers() {
   }
 }
 
+export function getAllPlaces() {
+  return axios.get(`${baseUrl}/places`)
+}
+
 export function getPlacesWithFiveStars() {
   return axios.get(`${baseUrl}/places/search?rating=5`)
 }
@@ -29,4 +33,8 @@ export function editPlace(placeId, formData) {
 
 export function deletePlace(id) {
   return axios.delete(`${baseUrl}/places/${id}`, headers())
+}
+
+export function getCordinates(pc) {
+  return axios.get(`http://api.postcodes.io/postcodes/${pc}`)
 }
