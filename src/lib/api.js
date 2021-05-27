@@ -11,6 +11,10 @@ function headers() {
   }
 }
 
+export function getAllPlaces() {
+  return axios.get(`${baseUrl}/places`)
+}
+
 export function getPlacesWithFiveStars() {
   return axios.get(`${baseUrl}/places/search?rating=5`)
 }

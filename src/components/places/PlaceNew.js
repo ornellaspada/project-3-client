@@ -212,7 +212,7 @@ function CreateNewPlace() {
               </p>}
             </div>
             <div className='field'>
-              <button type='submit' className='button is-dark is-fullwidth'>
+              <button type='submit' className='button is-success is-fullwidth'>
                 Create a place!!! Lets Go!
               </button> 
             </div>

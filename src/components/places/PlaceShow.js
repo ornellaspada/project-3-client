@@ -91,7 +91,7 @@ function PlaceShow() {
                     >
                     </Link>
                     <button onClick={handleDelete} className="button is-danger">
-                      Delete this 
+                      Delete this place
                     </button>
                   </div>
                 )}

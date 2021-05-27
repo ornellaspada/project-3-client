@@ -21,14 +21,14 @@ function NavBar() {
   }, [location.pathname])
 
   return (
-    <nav className='navbar is-dark'>
+    <nav className='navbar is-link'>
       <div className='container'>
         <div className='navbar-brand'> 
           <Link to = '/' className='navbar-item'>
-              Home
+            Home
           </Link>
           <Link to="/map" className="navbar-item" href='/'>
-              Map
+            Map
           </Link>
           <span
             className={`navbar-burger ${isOpen ? 'is-active' : ''}`}
@@ -43,30 +43,27 @@ function NavBar() {
         </div>
         <div className={`navbar-menu ${isOpen ? 'is-active' : ''}`}>
           <div 
-            className="navbar-end">
+            className="navbar-end ">
             <div className="navbar-item">
               <div className="buttons">
-                {isLoggedIn && <Link to ='/places/new' className='button is-white'>
-          Create a place
+                {isLoggedIn && <Link to ='/places/new' className='button is-link'>
+                  Submit a place
                 </Link>}
-                {isLoggedIn && <Link to ='/favorites' className='button is-white'>
-          My Fav
+                {isLoggedIn && <Link to ='/favorites' className='button is-link'>
+                  My favourites
                 </Link>}
-                {!isLoggedIn &&  <Link to ='/register' className='navbar-item' href='/'>
-                Register
+                {!isLoggedIn &&  <Link to ='/register' className='navbar-item button is-info' href='/'>
+                  Register
                 </Link>
-                          
-            
-
                 }
                 {!isLoggedIn ?
                   <>
-                    <Link to = '/login' className='navbar-item' href='/'>
-                  Log In
+                    <Link to = '/login' className='navbar-item button is-success' href='/'>
+                      Log In
                     </Link> 
                   </>
                   :
-                  <button className='button is-white' onClick= {handleLogout}>
+                  <button className='button is-warning' onClick= {handleLogout}>
                   Log out</button>
                 }
               </div>
