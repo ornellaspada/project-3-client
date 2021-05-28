@@ -10,6 +10,9 @@ import {
 import { isAuthorized, isOwner } from '../../lib/auth'
 import Error from '../common/Error'
 import { useHistory } from 'react-router'
+import ReviewsList from '../reviews/ReviewsList'
+
+
 function PlaceShow() {
   const history = useHistory()
   const { placeId } = useParams()
@@ -19,6 +22,7 @@ function PlaceShow() {
   const [isError, setIsError] = React.useState(false)
   const isLoading = !place && !isError
   const isLoggedIn = isAuthorized
+
   React.useEffect(() => {
     const getData = async () => {
       try {
@@ -31,6 +35,7 @@ function PlaceShow() {
     }
     getData()
   }, [placeId])
+
   React.useEffect(() => {
     const getData = async () => {
       try {
@@ -43,18 +48,22 @@ function PlaceShow() {
     }
     getData()
   }, [placeId])
+
   const handleDelete = async () => {
     await deletePlace(place._id)
     history.push('/map')
   }
+
   const handleAddFav = async () => {
     await addFav(place._id)
     setIsFav(true)
   }
+
   const handleRemFav = async () => {
     await removeFav(place._id)
     setIsFav(false)
   }
+
   return (
     <>
       <section className="section">
@@ -139,39 +148,32 @@ function PlaceShow() {
                   )}
                 </div>
               </div>
-              <section className="section">
+              {isLoggedIn ? (
                 <div>
                   <Link to={`/places/${place._id}/review`}>
-                    <button className="button"> Review this place</button>
+                    <button className="button"> Review this place </button>
                   </Link>
                 </div>
+              ) : (
+                ''
+              )
+              }
+
+              <section className="section">
+                {/* {(reviews !== []) ? ( */}
                 <div className="container">
                   <div className="title has-text-centered">Reviews:</div>
                 </div>
+                {/* ) : (
+                  ''
+                )} */}
+
                 <div className="columns is-multiline">
                   <div className="column is-one-quarter-desktop is-one-third-tablet">
-                    {reviews.map((review) => (
-                      <div className="card" key={review._id}>
-                        <div className="card-header">
-                          <div className="card-header-title">
-                            {review.userName}
-                          </div>
-                        </div>
-                        <div className="card-image">
-                          <figure className="image image-is-1by1">
-                            <img src={review.image} alt={review.userName} />
-                          </figure>
-                        </div>
-                        <div className="card-content">
-                          <p>{review.text}</p>
-                        </div>
-                        <div className="card-content">
-                          <p>{'⭐️ '.repeat(review.rating)}</p>
-                        </div>
-                      </div>
-                    ))}
+                    {reviews.map(review => <ReviewsList key={review._id} {...review} />)}
                   </div>
                 </div>
+
               </section>
             </div>
           )}
