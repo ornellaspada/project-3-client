@@ -14,6 +14,8 @@ function CreateNewPlace() {
     postcode: '',
     description: '',
     categories: '',
+    district: '',
+    region: '',
     image: '',
     rating: '',
     lat: '',
@@ -24,16 +26,23 @@ function CreateNewPlace() {
     e.preventDefault()
     const postCodeData = await getCordinates(formData.postcode)
     const postCodeResult = await postCodeData.data.result
-    console.log(postCodeResult.latitude)
+    console.log(postCodeResult.region)
+    console.log(postCodeResult.admin_district)    
     console.log(formData)
     try {
       
-      const res = await createPlace( { 
+      const newFormData = { 
         ...formData, 
         lat: Number(postCodeResult.latitude),
         long: Number(postCodeResult.longitude),
         area: postCodeResult.admin_ward,
-      })
+        region: postCodeResult.region,
+        district: postCodeResult.admin_district,
+      }
+      console.log('this is it', newFormData)
+
+      const res = await createPlace( newFormData )
+
       history.push(`/places/${res.data._id}`)
     } catch (error) {
       alert(error.response.data.message)
@@ -67,22 +76,6 @@ function CreateNewPlace() {
               </div>
               {formErrors.name && <p className='help is-danger'>
                 {formErrors.name}
-              </p>}
-            </div>
-            <div className='field'>
-              <label className='label'>Area</label>
-              <div className='control'>
-                <input 
-                  className={`input ${formErrors.area ? 
-                    'is-danger' : '' }`}
-                  placeholder='Area'
-                  name='area'
-                  onChange={handleChange}
-                  // value={formData.area}
-                />
-              </div>
-              {formErrors.area && <p className='help is-danger'>
-                {formErrors.area}
               </p>}
             </div>
             <div className='field'>
@@ -179,42 +172,6 @@ function CreateNewPlace() {
               </div>
               {formErrors.rating && <p className='help is-danger'>
                 {formErrors.rating}
-              </p>}
-            </div>
-            <div className='field'>
-              <label className='label'>Latitude</label>
-              <div className='control'>
-                <input 
-                  className={`input ${formErrors.lat ? 
-                    'is-danger' : '' }`}
-                  placeholder='Latitude'
-                  name='lat'
-                  onChange={handleChange}
-                  type='number'
-                  step='any'
-                  // value={formData.lat}
-                />
-              </div>
-              {formErrors.lat && <p className='help is-danger'>
-                {formErrors.lat}
-              </p>}
-            </div>
-            <div className='field'>
-              <label className='label'>Longitude</label>
-              <div className='control'>
-                <input 
-                  className={`input ${formErrors.long ? 
-                    'is-danger' : '' }`}
-                  placeholder='Longitude'
-                  name='long'
-                  onChange={handleChange}
-                  type='number'
-                  step='any'
-                  // value={formData.long}
-                />
-              </div>
-              {formErrors.long && <p className='help is-danger'>
-                {formErrors.long}
               </p>}
             </div>
             <div className='field'>
