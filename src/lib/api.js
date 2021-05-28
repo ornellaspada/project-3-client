@@ -26,3 +26,16 @@ export function createPlace(formData) {
 export function deletePlace(id) {
   return axios.delete(`${baseUrl}/places/${id}`, headers())
 }
+
+export function addFav(id){
+  return axios.post(`${baseUrl}/favourites/${id}`, null,  headers())
+}
+export function removeFav(id){
+  return axios.put(`${baseUrl}/favourites/${id}`, null,  headers())
+}
+export function checkFav(id){
+  return axios.get(`${baseUrl}/favourites/${id}`, headers())
+}
+export function showMyFavs(){
+  return axios.get(`${baseUrl}/favourites`, headers())
+}

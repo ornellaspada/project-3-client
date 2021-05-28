@@ -4,11 +4,13 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import PlaceShow from './components/places/PlaceShow'
 import PlaceNew from './components/places/PlaceNew'
 import PlaceMap from './components/places/PlacesMap'
+import MyFav from './components/places/MyFav'
 
 import Home from './components/common/HomePage'
 import NavBar from './components/common/NavBar'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
+
 // import { MapTouchEvent } from 'mapbox-gl'
 
 
@@ -30,13 +32,14 @@ function App() {
       <BrowserRouter>
         <NavBar /> 
         <Switch>
-          < Route exact path='/' component={ Home } />
+          <Route exact path='/' component={ Home } />
           <Route path = '/register' component ={Register}/>
           <Route path='/login' component={Login}/>
           <Route exact path='/map' component={PlaceMap} />
           <Route path="/places/new" component={PlaceNew} />
           <Route path="/places/map" component={Map} />
           <Route path="/places/:placeId" component={PlaceShow} />
+          <Route path="/favorites" component={MyFav} />
         </Switch>
       </BrowserRouter>
     </>

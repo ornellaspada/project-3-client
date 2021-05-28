@@ -65,6 +65,7 @@
         "beforeColon": false
       }
     ],
+    "template-curly-spacing": "off",
     "no-console": "off",
     "no-fallthrough": "warn",
     "prefer-const": "error",
