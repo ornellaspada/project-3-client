@@ -62,7 +62,7 @@ function PlaceShow() {
                   Adress
                 </h4>
                 <hr />
-                <p>{place.address}, {place.postcode}</p>
+                <p>{place.address}, {place.postcode}, {place.district}, {place.region}</p>
                 <hr />
                 <h6 className="title is-4">
                   <span role="img" aria-label="wave">
