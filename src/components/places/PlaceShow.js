@@ -31,7 +31,6 @@ function PlaceShow() {
     history.push('/map')
   }
 
-
   return (
     <>
       <section className="section">
