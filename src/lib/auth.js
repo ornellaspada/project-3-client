@@ -27,6 +27,7 @@ export function isAuthorized() {
 
 export function isOwner(userId) {
   const payload = getPayLoad()
+  console.log(payload)
   if (!payload) return false
   return userId === payload.sub
 }

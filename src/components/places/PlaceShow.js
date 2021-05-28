@@ -29,7 +29,6 @@ function PlaceShow() {
     history.push('/map')
   }
 
-
   return (
 
     <section className="section">
@@ -59,10 +58,10 @@ function PlaceShow() {
                   <span role="img" aria-label="globe">
                     📍
                   </span>{' '}
-                  Adress
+                  Address
                 </h4>
                 <hr />
-                <p>{place.address}, {place.postcode}, {place.district}, {place.region}</p>
+                <p>{place.address}, {place.postcode} {place.district} {place.region}</p>
                 <hr />
                 <h6 className="title is-4">
                   <span role="img" aria-label="wave">
@@ -86,19 +85,22 @@ function PlaceShow() {
 
                 </p>
                 <hr />
-                
-                {isOwner(place.user._id) && (
-                  <div className="buttons">
-                    <Link
-                      to={`/places/${place._id}/edit`}
-                      className="button is-warning"
-                    > Edit
-                    </Link>
-                    <button onClick={handleDelete} className="button is-danger">
+
+                {isOwner(place.user._id) ? 
+                  (
+                    <div className="buttons">
+                      <Link
+                        to={`/places/${place._id}/edit`}
+                        className="button is-warning"
+                      > Edit
+                      </Link>
+                      <button onClick={handleDelete} className="button is-danger">
                       Delete this place
-                    </button>
-                  </div>
-                )}
+                      </button>
+                    </div>
+                  ) :
+                  ''
+                }
               </div>
             </div>
           </div>
