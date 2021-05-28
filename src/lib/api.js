@@ -39,6 +39,7 @@ export function getCordinates(pc) {
   return axios.get(`http://api.postcodes.io/postcodes/${pc}`)
 }
 
-export function createReview(id) {
-  return axios.post(`${baseUrl}/places/${id}/review`, headers())
+export function createReview(formData, placeId) {
+  return axios.post(`${baseUrl}/places/${placeId}/review`, formData, headers())
+
 }
