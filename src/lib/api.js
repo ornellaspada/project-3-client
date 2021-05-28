@@ -38,3 +38,7 @@ export function deletePlace(id) {
 export function getCordinates(pc) {
   return axios.get(`http://api.postcodes.io/postcodes/${pc}`)
 }
+
+export function createReview(id) {
+  return axios.post(`${baseUrl}/places/${id}/review`, headers())
+}

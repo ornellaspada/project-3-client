@@ -12,6 +12,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Footer from './components/common/Footer'
 import Header from './components/common/Header'
+import ReviewNew from './components/reviews/ReviewNew'
 // import { MapTouchEvent } from 'mapbox-gl'
 
 
@@ -41,7 +42,9 @@ function App() {
           <Route path="/places/new" component={PlaceNew} />
           <Route path="/places/map" component={Map} />
           <Route path="/places/:placeId/edit" component={PlaceEdit} />
+          <Route path="/places/:placeId/review" component={ReviewNew} />
           <Route path="/places/:placeId" component={PlaceShow} />
+          
         </Switch>
         <Footer />
       </BrowserRouter>

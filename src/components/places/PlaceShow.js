@@ -100,6 +100,16 @@ function PlaceShow() {
                   </div>
                 )}
               </div>
+
+              <div>
+                <div>
+                  <>
+                    <Link to={`/places/${place._id}/review`}>
+                      <button className="button"> Review this place</button>
+                    </Link>
+                  </>
+                </div>
+              </div>
             </div>
           </div>
         )}
