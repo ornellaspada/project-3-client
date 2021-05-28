@@ -86,7 +86,13 @@ function PlaceShow() {
 
                 </p>
                 <hr />
-                
+                <h6 className="title is-4">
+                  <span role="img" aria-label="wave">
+                    ❗️
+                  </span>{' '}
+                  Categories: {place.categories}
+                </h6>
+                <hr />
                 {isOwner(place.user._id) && (
                   <div className="buttons">
                     <Link
