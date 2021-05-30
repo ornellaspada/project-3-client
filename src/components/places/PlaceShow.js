@@ -98,19 +98,18 @@ function PlaceShow() {
                   </p>
                   <hr />
                   <h6 className="title titles is-4">
-                    
-                    Added By
-                  </h6>
-                  
-                  <p className='texts'>{place.user.username}</p>
-                  <hr />
-                  <h6 className="title titles is-4">
-                    
                     Rating
                   </h6>
                   
                   <p>{' ★ '.repeat(place.rating)}</p>
                   <hr />
+                  <h6 className="title titles is-5">
+                    
+                    Added by {place.user.username}
+                  </h6>
+
+                  <hr />
+
 
                   <section>
 
@@ -138,18 +137,18 @@ function PlaceShow() {
                   </section>
                   {isLoggedIn && isFav ? (
                     <button onClick={handleRemFav} className="button button-delete-fav">
-                      Delete MyFav
+                      ✖ Delete from My Fav
                     </button>
                   ) : (
                     <button onClick={handleAddFav} className="button button-add-fav">
-                      Add to MyFav
+                      ♥ Add to My Fav
                     </button>
                   )}
 
                   {isLoggedIn ? (
                     <div>
                       <Link to={`/places/${place._id}/review`}>
-                        <button className="button button-review"> Review this place </button>
+                        <button className="button button-review"> ✒️ Review this place </button>
                       </Link>
                     </div>
                   ) : (

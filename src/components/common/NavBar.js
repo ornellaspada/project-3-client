@@ -28,7 +28,7 @@ function NavBar() {
             Home
           </Link>
           <Link to="/map" className="navbar-item has-text-light" href='/'>
-            Map
+           Map
           </Link>
           <span
             className={`navbar-burger ${isOpen ? 'is-active' : ''}`}
@@ -50,20 +50,16 @@ function NavBar() {
                   Submit a place
                 </Link></div>}
                 {isLoggedIn && <div className='navbar-item'><Link to ='/favorites' className="has-text-light">
-                  My favourites
+                  My Favourites
                 </Link></div>}
-                {!isLoggedIn &&  <Link to ='/register' className="navbar-item button is-light" href='/'>
-                  Register
-                </Link>
+                {!isLoggedIn &&  
+                  <button className="navbar-item button button-nav"><Link to ='/register' className="link-nav" href='/'>Register</Link></button>
+                
                 }
                 {!isLoggedIn ?
-                  <>
-                    <Link to = '/login' className='navbar-item button is-light' href='/'>
-                      Log In
-                    </Link> 
-                  </>
+                  <button className="navbar-item button button-nav"><Link to = '/login' className=' link-nav' href='/'>Log In</Link> </button>
                   :
-                  <button className='button is-light' onClick= {handleLogout}>
+                  <button className='button button-nav' onClick= {handleLogout}>
                   Log out</button>
                 }
               </div>

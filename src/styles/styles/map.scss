@@ -1,0 +1,24 @@
+.map {
+  .pins {
+    text-transform: uppercase;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 5px;
+  }
+  .pins:hover {
+    
+    border-radius: 80%;
+  }
+
+  .pin-hover {
+    font-family: 'Antic Slab', serif;
+    background-color: rgba(204, 255, 0, 0.842);
+    padding: 5px;
+  }
+  
+
+  .info {
+    font-weight: lighter;
+    background-color: rgb(204,255,0);
+    }
+}

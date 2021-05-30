@@ -56,10 +56,10 @@ function Home() {
 
   const filteredPlaces = allPlaces?.filter((place) => {
     return (
-      (place.name.toLowerCase().includes(searchTerm)) || 
-      (place.area.toLowerCase().includes(searchTerm)) ||
-      (place.address.toLowerCase().includes(searchTerm))
-
+      (place.name.toLowerCase().includes(searchTerm.toLowerCase())) || 
+      (place.area.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (place.address.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (place.postcode.toLowerCase().includes(searchTerm.toLowerCase()))
     )
   })
   console.log(filteredPlaces)
@@ -71,7 +71,7 @@ function Home() {
 
   // ? if page is blank 
   if (loading) {
-    return <div className="loading-message">Loading... Mindblowing places will appear in just a moment!</div>
+    return <div className="loading-message">Loading... Beautiful places will appear in just a moment!</div>
   }
 
   
@@ -82,42 +82,43 @@ function Home() {
       <section className="hero is-medium searchbar-section mx-5 my-5">
         <div className="hero-body">
           <div className="has-text-centered">
-            <input onChange={handleInput} type="text" placeholder="Search a place" className="input is-medium is-rounded search-input"/>
+            <input onChange={handleInput} type="text" placeholder="Search a place by name, address, postcode or area " className="input is-medium is-rounded search-input"></input>
             
-            <button onClick={handleSearch} className="button is-black is-rounded ">Search!</button>
+            <button onClick={handleSearch} className="button is-rounded">Search!</button>
             
           </div>
         </div>
+        <div className="column is-one-quarter-desktop is-one-third-tablet">
+          {searched ? searched.map(result => {
+            return (
+              <>
+                <Link to={`/places/${result._id}`} >
+                  <div className="card show-page" key={result._id}>
+                    <div className="card-header">
+                      <h2 className="card-header-title titles">{result.name}</h2>
+                    </div>
+                    <div className="card-image">
+                      <figure className="image image-is-1by1">
+                        <img src={result.image} alt={result.name} />
+                      </figure>
+                    </div>
+                    <div className="card-content">
+                      <p className='texts'>{result.area}</p>
+                      <p>{' ★ '.repeat(result.rating)}</p>
+                    </div>
+                  </div>
+                
+                </Link>
+              </>
+            )
+          })
+            :
+            ''
+          }
+        </div>
       </section>
 
-      <section className="column is-one-quarter-desktop is-one-third-tablet">
-        {searched ? searched.map(result => {
-          return (
-            <>
-              <Link to={`/places/${result._id}`} >
-                <div className="card show-page" key={result._id}>
-                  <div className="card-header">
-                    <h2 className="card-header-title titles">{result.name}</h2>
-                  </div>
-                  <div className="card-image">
-                    <figure className="image image-is-1by1">
-                      <img src={result.image} alt={result.name} />
-                    </figure>
-                  </div>
-                  <div className="card-content">
-                    <p className='texts'>{result.area}</p>
-                    <p>{'⭐️ '.repeat(result.rating)}</p>
-                  </div>
-                </div>
-                <hr />
-              </Link>
-            </>
-          )
-        })
-          :
-          ''
-        }
-      </section>
+      <hr />
 
       <section className="section">
         <div className="container">
@@ -130,9 +131,9 @@ function Home() {
               {bestPlaces.map(place => (
                 <>
                   <Link to={`/places/${place._id}`} >
-                    <div className="card" key={place._id}>
+                    <div className="card show-page" key={place._id}>
                       <div className="card-header">
-                        <div className="card-header-title">{place.name}</div>
+                        <div className="card-header-title titles">{place.name}</div>
                       </div>
                       <div className="card-image">
                         <figure className="image image-is-1by1">
@@ -140,7 +141,7 @@ function Home() {
                         </figure>
                       </div>
                       <div className="card-content">
-                        <p>{place.area}</p>
+                        <p className='texts'>{place.area}</p>
                         <p>{' ★ '.repeat(place.rating)}</p>
                       </div>
                     </div>

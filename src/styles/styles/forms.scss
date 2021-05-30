@@ -1,0 +1,37 @@
+.forms {
+
+  .labels {
+    font-family: 'Cutive Mono', monospace;
+    text-transform: uppercase;
+  }
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-family: 'Antic Slab', serif;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    font-family: 'Antic Slab', serif;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    font-family: 'Antic Slab', serif;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    font-family: 'Antic Slab', serif;
+  }
+  
+  
+  .button-submit {
+    background-color: rgb(204,255,0);
+    color: black;
+    font-family: 'Cutive Mono', monospace;
+    font-weight: bold;
+  }
+
+  .button-submit:hover {
+      background-color: rgb(150, 187, 3);
+    }
+
+}
+
+.title-form {
+  font-family: 'Cutive Mono', monospace;
+  text-transform: uppercase;
+}

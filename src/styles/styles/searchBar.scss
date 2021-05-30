@@ -1,9 +1,15 @@
 .searchbar-section {
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(221, 221, 221);
+
+  input { 
+    border: 1px solid rgb(204,255,0);
+  }
 
   button {
     font-family: 'Cutive Mono', monospace;
     margin-top: 10px;
+    background-color: rgb(204,255,0);
+    font-weight: bold;
   }
 
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

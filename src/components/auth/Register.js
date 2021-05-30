@@ -29,19 +29,19 @@ function Register (){
     <section className='section'>
       <div className='container'>
         <div className='columns'>
-          <form className='column is-half is-offset-one-quarter' onSubmit={handleSubmit}>
+          <form className='forms column is-half is-offset-one-quarter' onSubmit={handleSubmit}>
             <div className="field">
-              <label className="label" htmlFor="username"> Username
+              <label className="label labels" htmlFor="username"> Username*
               </label>
               <div className="control">
                 <input className={`input ${formErrors.username ? 'is-danger' : '' } `}
                   name="username" id="username" onChange={handleChange}
                   value={formData.username} />
               </div>
-              {formErrors.username && <small  className='helpis-danger' >Username is required</small>}
+              {formErrors.username && <small  className='help is-danger'>Username is required</small>}
             </div>
             <div className="field">
-              <label className="label" htmlFor="username"> Email
+              <label className="label labels" htmlFor="username"> Email*
               </label>
               <div className="control">
                 <input className={`input ${formErrors.email ? 'is-danger' : '' } `}
@@ -51,7 +51,7 @@ function Register (){
               {formErrors.email && <small  className='help is-danger '> Email is required </small>}
             </div>
             <div className="field">
-              <label className="label" htmlFor="username"> Email Confirmation
+              <label className="label labels" htmlFor="username"> Email Confirmation*
               </label>
               <div className="control">
                 <input className={`input ${formErrors.emailConfirmation ? 'is-danger' : '' } `}
@@ -61,7 +61,7 @@ function Register (){
               {formErrors.emailConfirmation && <small  className='help is-danger '> Email Confirmation is required </small>}
             </div>
             <div className="field">
-              <label className="label" htmlFor="username"> Password
+              <label className="label labels" htmlFor="username"> Password*
               </label>
               <div className="control">
                 <input className={`input ${formErrors.password ? 'is-danger' : '' } `}
@@ -71,7 +71,8 @@ function Register (){
               {formErrors.password && <small  className='help is-danger '> Password is required </small>}
             </div>
             <div className="field">
-              <label className="label" htmlFor="username"> Password Confirmation
+              <label className="label labels" htmlFor="username"> 
+                Password Confirmation*
               </label>
               <div className="control">
                 <input className={`input ${formErrors.passwordConfirmation ? 'is-danger' : '' } `}
@@ -81,7 +82,7 @@ function Register (){
               {formErrors.passwordConfirmation && <small  className='help is-danger '> Password Confirmation is required </small>}
             </div>
             <div className="field">
-              <button type="submit" className="button is-fullwidth is-black">Register Me!</button>
+              <button type="submit" className="button-submit button is-fullwidth is-black">Register me!</button>
             </div>
           </form>
         </div>

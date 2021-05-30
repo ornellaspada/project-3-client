@@ -14,11 +14,19 @@
     margin-bottom: 10px;
   }
 
+  .button-add-fav:hover {
+    background-color: rgb(192, 66, 154);
+  }
+
   .button-delete-fav {
-    background-color: rgb(182, 0, 127);
-    color: white;
+    background-color: rgb(227,28,121);
+    
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+
+  .button-delete-fav:hover {
+    background-color: rgb(189, 0, 88);
   }
 
   .button-edit {
@@ -26,14 +34,26 @@
     margin-bottom: 10px;
   }
 
+  .button-edit:hover {
+    background-color: rgb(150, 187, 3);
+  }
+
   .button-delete {
     background-color: rgb(204,255,0);
     margin-bottom: 10px;
   }
 
+  .button-delete:hover {
+    background-color: rgb(150, 187, 3);
+  }
+
   .button-review {
     background-color: rgb(68,214,44);
     margin-bottom: 10px;
+  }
+
+  .button-review:hover {
+    background-color: rgb(56, 165, 39);
   }
 
 }

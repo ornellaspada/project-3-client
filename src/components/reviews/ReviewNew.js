@@ -57,13 +57,16 @@ function CreateNewReview() {
   return (
     <section className='section'>
       <div className='container'>
+        <div className='title has-text-centered'>
+          <h2 className='title-form'>Write a review:</h2>
+        </div>
         <div className='columns'>
           <form 
-            className='column is-half is-offset-one-quarter box'
+            className='forms column is-half is-offset-one-quarter box'
             onSubmit={handleSubmit}
           >
             <div className='field'>
-              <label className='label'>Username</label>
+              <label className='label labels'>Username*</label>
               <div className='control'>
                 <input 
                   className={`input ${formErrors.userName ? 
@@ -78,10 +81,10 @@ function CreateNewReview() {
               </p>}
             </div>
             <div className='field'>
-              <label className='label'>Review</label>
+              <label className='label labels'>Review*</label>
               <div className='control'>
                 <input
-                  className={`input ${formErrors.text ?
+                  className={`textarea ${formErrors.text ?
                     'is-danger' : '' }`}
                   placeholder='Write your review'
                   name='text'
@@ -94,7 +97,7 @@ function CreateNewReview() {
             </div>
             
             <div className='field'>
-              <label className='label'>Rating</label>
+              <label className='label labels'>Rating*</label>
               <div className='control'>
                 <input 
                   className={`input ${formErrors.rating ? 
@@ -109,7 +112,7 @@ function CreateNewReview() {
               </p>}
             </div>
             <div className='field'>
-              <label className='label'>Image</label>
+              <label className='label labels'>Image</label>
               <div className='control'>
                 <input 
                   className={`input ${formErrors.image ? 
@@ -124,7 +127,7 @@ function CreateNewReview() {
               </p>}
             </div>
             <div className='field'>
-              <button type='submit' className='button is-success is-fullwidth'>
+              <button type='submit' className='button-submit button is-success is-fullwidth'>
                   Post your review!
               </button> 
             </div>

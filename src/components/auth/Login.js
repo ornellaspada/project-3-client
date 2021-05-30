@@ -35,9 +35,9 @@ function Login(){
       <div className="container">
         <div className="columns">
           <form
-            className="box column is-half is-offset-one-quarter" onSubmit={handleSubmit} >
+            className="forms box column is-half is-offset-one-quarter" onSubmit={handleSubmit} >
             <div className="field">
-              <label className="label">Email</label>
+              <label className="label labels">Email*</label>
               <div className="control">
                 <input
                   className="input"
@@ -51,7 +51,7 @@ function Login(){
             
             </div>
             <div className="field">
-              <label className="label">Password</label>
+              <label className="label labels">Password*</label>
               <div className="control">
                 <input
                   type="password"
@@ -65,8 +65,8 @@ function Login(){
               {isError && <small className='help is-danger'>Your credentials are incorrect</small>}
             </div>
             <div className="field">
-              <button type="submit" className="button is-fullwidth is-black">
-            Log Me In!
+              <button type="submit" className="button-submit button is-fullwidth is-black">
+              Log me in!
               </button>
             </div>
           </form>
