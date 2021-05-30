@@ -46,7 +46,7 @@ function Map() {
               <Link to={`/places/${place._id}`}>
                 <div>
                   <button value={place._id} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}> 📍 </button>
-                  {inHover === place._id && <p>{place.name}<br/>{'⭐️ '.repeat(place.rating)}</p>}
+                  {inHover === place._id && <p>{place.name}<br/>{' ★ '.repeat(place.rating)}</p>}
                 </div>
               </Link>
             </Marker>

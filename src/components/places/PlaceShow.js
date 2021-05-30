@@ -71,8 +71,8 @@ function PlaceShow() {
           {isError && <Error />}
           {isLoading && <p>...loading</p>}
           {place && (
-            <div>
-              <h2 className="title has-text-centered">{place.name}</h2>
+            <div className='show-page'>
+              <h2 className="title titles has-text-centered">{place.name}</h2>
               <hr />
               <div className="columns">
                 <div className="column is-half">
@@ -81,88 +81,90 @@ function PlaceShow() {
                   </figure>
                 </div>
                 <div className="column is-half">
-                  <h4 className="title is-4">
-                    <span role="img" aria-label="plate">
-                      🏆
-                    </span>{' '}
+                  <h4 className="title titles is-4">
+                    
                     Description
                   </h4>
-                  <p>{place.description}</p>
+                  <p className='texts'>{place.description}</p>
                   <hr />
-                  <h4 className="title is-4">
-                    <span role="img" aria-label="globe">
-                      📍
-                    </span>{' '}
-                    Adress
+                  <h4 className="title titles is-4">
+                    
+                    Address
                   </h4>
-                  <hr />
-                  <p>
+                  
+                  <p className='texts'>
                     {place.address}, {place.postcode}, {place.district},{' '}
                     {place.region}
                   </p>
                   <hr />
-                  <h6 className="title is-4">
-                    <span role="img" aria-label="wave">
-                      🖐
-                    </span>{' '}
+                  <h6 className="title titles is-4">
+                    
                     Added By
                   </h6>
+                  
+                  <p className='texts'>{place.user.username}</p>
                   <hr />
-                  <p>{place.user.username}</p>
-                  <hr />
-                  <h6 className="title is-4">
-                    <span role="img" aria-label="wave">
-                      🚀
-                    </span>{' '}
+                  <h6 className="title titles is-4">
+                    
                     Rating
                   </h6>
+                  
+                  <p>{' ★ '.repeat(place.rating)}</p>
                   <hr />
-                  <p>{'⭐️ '.repeat(place.rating)}</p>
-                  <hr />
-                  {isOwner(place.user._id) && (
-                    <div>
-                      <div className="buttons">
-                        <Link
-                          to={`/places/${place._id}/edit`}
-                          className="button is-warning"
-                        >
-                          Edit
-                        </Link>
-                        <button
-                          onClick={handleDelete}
-                          className="button is-danger"
-                        >
+
+                  <section>
+
+                    {isOwner(place.user._id) && (
+                      <div>
+                        <div className="buttons">
+                          <Link
+                            to={`/places/${place._id}/edit`}
+                            className="button button-edit"
+                          >
+                          Edit this place
+                          </Link>
+                          <button
+                            onClick={handleDelete}
+                            className="button button-delete"
+                          >
                           Delete this place
-                        </button>
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+
+                    
+
+                  </section>
                   {isLoggedIn && isFav ? (
-                    <button onClick={handleRemFav} className="button is-black">
+                    <button onClick={handleRemFav} className="button button-delete-fav">
                       Delete MyFav
                     </button>
                   ) : (
-                    <button onClick={handleAddFav} className="button is-black">
+                    <button onClick={handleAddFav} className="button button-add-fav">
                       Add to MyFav
                     </button>
                   )}
-                </div>
-              </div>
-              {isLoggedIn ? (
-                <div>
-                  <Link to={`/places/${place._id}/review`}>
-                    <button className="button"> Review this place </button>
-                  </Link>
-                </div>
-              ) : (
-                ''
-              )
-              }
 
+                  {isLoggedIn ? (
+                    <div>
+                      <Link to={`/places/${place._id}/review`}>
+                        <button className="button button-review"> Review this place </button>
+                      </Link>
+                    </div>
+                  ) : (
+                    ''
+                  )
+                  }
+                  
+                </div>
+                
+              </div>
+              
               <section className="section">
                 {/* {(reviews !== []) ? ( */}
                 <div className="container">
-                  <div className="title has-text-centered">Reviews:</div>
+                  <div className="title has-text-centered titles">Reviews:</div>
                 </div>
                 {/* ) : (
                   ''

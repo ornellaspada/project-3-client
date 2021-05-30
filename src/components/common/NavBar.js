@@ -21,13 +21,13 @@ function NavBar() {
   }, [location.pathname])
 
   return (
-    <nav className='navbar is-link'>
+    <nav className='navbar navbar-style'>
       <div className='container'>
         <div className='navbar-brand'> 
-          <Link to = '/' className='navbar-item'>
+          <Link to = '/' className='navbar-item has-text-light'>
             Home
           </Link>
-          <Link to="/map" className="navbar-item" href='/'>
+          <Link to="/map" className="navbar-item has-text-light" href='/'>
             Map
           </Link>
           <span
@@ -36,34 +36,34 @@ function NavBar() {
             aria-expanded="false"
             onClick={handleToggle}
           >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+            <span className="has-text-light" aria-hidden="true"></span>
+            <span className="has-text-light" aria-hidden="true"></span>
+            <span className="has-text-light" aria-hidden="true"></span>
           </span>
         </div>
-        <div className={`navbar-menu ${isOpen ? 'is-active' : ''}`}>
+        <div className={` navbar-style navbar-menu ${isOpen ? 'is-active' : ''}`}>
           <div 
             className="navbar-end ">
             <div className="navbar-item">
-              <div className="buttons">
-                {isLoggedIn && <Link to ='/places/new' className='button is-link'>
+              <div className="navbar-item">
+                {isLoggedIn && <div className='navbar-item'><Link to ='/places/new' className=" has-text-light">
                   Submit a place
-                </Link>}
-                {isLoggedIn && <Link to ='/favorites' className='button is-link'>
+                </Link></div>}
+                {isLoggedIn && <div className='navbar-item'><Link to ='/favorites' className="has-text-light">
                   My favourites
-                </Link>}
-                {!isLoggedIn &&  <Link to ='/register' className='navbar-item button is-info' href='/'>
+                </Link></div>}
+                {!isLoggedIn &&  <Link to ='/register' className="navbar-item button is-light" href='/'>
                   Register
                 </Link>
                 }
                 {!isLoggedIn ?
                   <>
-                    <Link to = '/login' className='navbar-item button is-success' href='/'>
+                    <Link to = '/login' className='navbar-item button is-light' href='/'>
                       Log In
                     </Link> 
                   </>
                   :
-                  <button className='button is-warning' onClick= {handleLogout}>
+                  <button className='button is-light' onClick= {handleLogout}>
                   Log out</button>
                 }
               </div>

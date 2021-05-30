@@ -79,12 +79,12 @@ function Home() {
   return (
     <>
 
-      <section className="hero is-medium is-primary">
+      <section className="hero is-medium searchbar-section mx-5 my-5">
         <div className="hero-body">
           <div className="has-text-centered">
-            <input onChange={handleInput} type="text" placeholder="Search a place" className="input is-link is-large is-rounded search-input"/>
+            <input onChange={handleInput} type="text" placeholder="Search a place" className="input is-medium is-rounded search-input"/>
             
-            <button onClick={handleSearch} className="button is-link is-rounded has-background-link">Search!</button>
+            <button onClick={handleSearch} className="button is-black is-rounded ">Search!</button>
             
           </div>
         </div>
@@ -95,9 +95,9 @@ function Home() {
           return (
             <>
               <Link to={`/places/${result._id}`} >
-                <div className="card" key={result._id}>
+                <div className="card show-page" key={result._id}>
                   <div className="card-header">
-                    <div className="card-header-title">{result.name}</div>
+                    <h2 className="card-header-title titles">{result.name}</h2>
                   </div>
                   <div className="card-image">
                     <figure className="image image-is-1by1">
@@ -105,7 +105,7 @@ function Home() {
                     </figure>
                   </div>
                   <div className="card-content">
-                    <p>{result.area}</p>
+                    <p className='texts'>{result.area}</p>
                     <p>{'⭐️ '.repeat(result.rating)}</p>
                   </div>
                 </div>
@@ -121,31 +121,33 @@ function Home() {
 
       <section className="section">
         <div className="container">
-          <div className="title has-text-centered">Our favourite places:</div>
-        </div>
+          <div>
+            <div className="title has-text-centered fav-title">Our favourite places:</div>
+          </div>
 
-        <div className="columns is-multiline">
-          <div className="column is-one-quarter-desktop is-one-third-tablet">
-            {bestPlaces.map(place => (
-              <>
-                <Link to={`/places/${place._id}`} >
-                  <div className="card" key={place._id}>
-                    <div className="card-header">
-                      <div className="card-header-title">{place.name}</div>
+          <div className="columns is-multiline">
+            <div className="column is-one-quarter-desktop is-one-third-tablet">
+              {bestPlaces.map(place => (
+                <>
+                  <Link to={`/places/${place._id}`} >
+                    <div className="card" key={place._id}>
+                      <div className="card-header">
+                        <div className="card-header-title">{place.name}</div>
+                      </div>
+                      <div className="card-image">
+                        <figure className="image image-is-1by1">
+                          <img src={place.image} alt={place.name} />
+                        </figure>
+                      </div>
+                      <div className="card-content">
+                        <p>{place.area}</p>
+                        <p>{' ★ '.repeat(place.rating)}</p>
+                      </div>
                     </div>
-                    <div className="card-image">
-                      <figure className="image image-is-1by1">
-                        <img src={place.image} alt={place.name} />
-                      </figure>
-                    </div>
-                    <div className="card-content">
-                      <p>{place.area}</p>
-                      <p>{'⭐️ '.repeat(place.rating)}</p>
-                    </div>
-                  </div>
-                </Link>
-              </>
-            ))}
+                  </Link>
+                </>
+              ))}
+            </div>
           </div>
         </div>
       </section>

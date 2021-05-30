@@ -24,13 +24,19 @@ function MyFav() {
         return (
           <Link key={place._id} to={`/places/${place._id}`}>
             {' '}
-            <div>
-              <p>{place.name}</p>
-              <figure>
-                <img src={place.image} alt={place.name} />
-              </figure>
-              <p>{place.area}</p>
-              <p>{'⭐️ '.repeat(place.rating)}</p>
+            <div className="card show-page" key={place._id}>
+              <div className="card-header">
+                <h2 className="card-header-title title titles">{place.name}</h2>
+              </div>
+              <div className="card-image">
+                <figure className="image image-is-1by1">
+                  <img src={place.image} alt={place.name} />
+                </figure>
+              </div>
+              <div className="card-content">
+                <p className='texts'>{place.area}</p>
+                <p>{' ★ '.repeat(place.rating)}</p>
+              </div>
             </div>
           </Link>
         )

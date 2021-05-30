@@ -1,9 +1,5 @@
 @import '~bulma/bulma.sass';
-
-
-
-
-.search-suggestion {
-  background-color: rgb(61, 12, 12);
-}
-
+@import 'styles/banner.scss';
+@import 'styles/searchBar.scss';
+@import 'styles/ourFavs.scss';
+@import 'styles/placeShow.scss';
