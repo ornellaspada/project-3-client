@@ -131,7 +131,7 @@ function Home() {
               {bestPlaces.map(place => (
                 <>
                   <Link to={`/places/${place._id}`} >
-                    <div className="card show-page" key={place._id}>
+                    <div className="card mb-2 show-page" key={place._id}>
                       <div className="card-header">
                         <div className="card-header-title titles">{place.name}</div>
                       </div>

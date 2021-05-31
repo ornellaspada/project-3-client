@@ -4,6 +4,7 @@
     border: none;
     background-color: rgba(255, 255, 255, 0);
     padding: 5px;
+    font-size: 25px;
   }
   .pins:hover {
     
@@ -12,13 +13,14 @@
 
   .pin-hover {
     font-family: 'Antic Slab', serif;
-    background-color: rgba(204, 255, 0, 0.842);
+    background-color: rgba(255,130,0);
     padding: 5px;
+    font-weight: bold;
   }
   
 
   .info {
-    font-weight: lighter;
-    background-color: rgb(204,255,0);
+    
+    background-color: rgb(255,130,0);
     }
 }

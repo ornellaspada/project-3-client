@@ -15,7 +15,7 @@ function ReviewList({ text, image, userName, rating }) {
         <p>{text}</p>
       </div>
       <div className="card-content">
-        <p>{'⭐️ '.repeat(rating)}</p>
+        <p>{' ★ '.repeat(rating)}</p>
       </div>
     </div>
   )

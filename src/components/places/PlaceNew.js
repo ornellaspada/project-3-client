@@ -13,7 +13,6 @@ function CreateNewPlace() {
     address: '',
     postcode: '',
     description: '',
-    categories: '',
     district: '',
     region: '',
     image: '',
@@ -150,22 +149,6 @@ function CreateNewPlace() {
                 </div>
                 {formErrors.image && <p className='help is-danger'>
                   {formErrors.image}
-                </p>}
-              </div>
-              
-              <div className='field'>
-                <label className='label labels'>Categories*</label>
-                <div className='control'>
-                  <input 
-                    className={`input ${formErrors.categories ? 
-                      'is-danger' : '' }`}
-                    placeholder='Categories ie. sports & leisure'
-                    name='categories'
-                    onChange={handleChange}
-                  />
-                </div>
-                {formErrors.categories && <p className='help is-danger'>
-                  {formErrors.categories}
                 </p>}
               </div>
              

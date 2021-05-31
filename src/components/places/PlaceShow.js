@@ -43,7 +43,8 @@ function PlaceShow() {
         console.log(res.data.isFav)
         setIsFav(res.data.isFav)
       } catch (err) {
-        setIsError(true)
+        // setIsError(true)
+        return <p>error</p>
       }
     }
     getData()
@@ -132,29 +133,27 @@ function PlaceShow() {
                       </div>
                     )}
 
-                    
 
                   </section>
+
                   {isLoggedIn && isFav ? (
                     <button onClick={handleRemFav} className="button button-delete-fav">
                       ✖ Delete from My Fav
                     </button>
+                    
                   ) : (
                     <button onClick={handleAddFav} className="button button-add-fav">
                       ♥ Add to My Fav
                     </button>
                   )}
 
-                  {isLoggedIn ? (
+                  {isAuthorized && (
                     <div>
                       <Link to={`/places/${place._id}/review`}>
                         <button className="button button-review"> ✒️ Review this place </button>
                       </Link>
                     </div>
-                  ) : (
-                    ''
-                  )
-                  }
+                  )}
                   
                 </div>
                 

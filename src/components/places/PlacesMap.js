@@ -13,6 +13,8 @@ function Map() {
     latitude: 51.50853,
     longitude: -0.12574,
     zoom: 12,
+    bearing: 0,
+    pitch: 0,
   })
 
   const [places, setPlaces] = React.useState([])

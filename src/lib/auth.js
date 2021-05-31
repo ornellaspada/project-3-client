@@ -20,14 +20,16 @@ function getPayLoad() {
 
 export function isAuthorized() {
   const payload = getPayLoad()
+  console.log(payload)
   if (!payload) return false
   const now = Math.round(Date.now() / 1000)
+  console.log(now)
   return now < payload.exp
 }
 
 export function isOwner(userId) {
   const payload = getPayLoad()
-  console.log(payload)
+  
   if (!payload) return false
   return userId === payload.sub
 }
