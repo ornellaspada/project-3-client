@@ -23,7 +23,6 @@ export function isAuthorized() {
   console.log(payload)
   if (!payload) return false
   const now = Math.round(Date.now() / 1000)
-  console.log(now)
   return now < payload.exp
 }
 

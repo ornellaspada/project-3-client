@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router'
+
 import { setToken } from '../../lib/auth'
 import { useForm } from '../../hooks/useForm'
 
@@ -20,7 +21,7 @@ function Login(){
       const res = await axios.post('/api/login', formData)
       console.log(res)
       setToken(res.data.token)
-      history.push('/map')
+      history.push('/places/map')
     } catch (err) {
       console.log(err.response)
       setIsError(true)

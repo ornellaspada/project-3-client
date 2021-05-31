@@ -7,20 +7,20 @@
     font-size: 25px;
   }
   .pins:hover {
-    
     border-radius: 80%;
   }
 
   .pin-hover {
     font-family: 'Antic Slab', serif;
-    background-color: rgba(255,130,0);
-    padding: 5px;
+    background-color: rgba(241, 59, 59, 0.822);
+    padding: 3px;
     font-weight: bold;
+    color: rgb(237,228,212,255);
   }
   
 
   .info {
-    
-    background-color: rgb(255,130,0);
+    background-color: rgb(241, 59, 59, 0.822);
+    color: rgb(237,228,212,255);
     }
 }

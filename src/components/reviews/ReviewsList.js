@@ -1,22 +1,28 @@
 function ReviewList({ text, image, userName, rating }) {
   return (
-    <div className="card" >
-      <div className="card-header">
-        <div className="card-header-title">
-          {userName}
-        </div>
-      </div>
-      <div className="card-image">
-        <figure className="image image-is-1by1">
-          <img src={image} alt={userName} />
-        </figure>
-      </div>
-      <div className="card-content">
+    <div className="card mb-5 show-page" >
+      <div className="card-content texts">
         <p>{text}</p>
       </div>
-      <div className="card-content">
-        <p>{' ★ '.repeat(rating)}</p>
+
+      <div className="card-content texts">
+        <p className="title is-5">Rating: {' ★ '.repeat(rating)}</p>
       </div>
+
+      { image ? (
+        <div className="card-image mx-5">
+          <figure className="image image-is-1by1">
+            <img src={image} alt={userName} />
+          </figure>
+        </div>
+      ) : (
+        ''
+      )}
+      
+      <div className="card-content texts">
+          Reviewed by {userName}
+      </div>
+
     </div>
   )
 }

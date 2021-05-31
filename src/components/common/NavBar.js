@@ -27,7 +27,7 @@ function NavBar() {
           <Link to = '/' className='navbar-item has-text-light'>
             Home
           </Link>
-          <Link to="/map" className="navbar-item has-text-light" href='/'>
+          <Link to="/places/map" className="navbar-item has-text-light" href='/'>
            Map
           </Link>
           <span

@@ -115,6 +115,7 @@ function Home() {
             :
             ''
           }
+          {(searched.length < 1) && <p className='texts'>Sorry, we have not found any match for your search</p>}
         </div>
       </section>
 

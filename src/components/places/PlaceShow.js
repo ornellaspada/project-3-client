@@ -52,7 +52,7 @@ function PlaceShow() {
 
   const handleDelete = async () => {
     await deletePlace(place._id)
-    history.push('/map')
+    history.push('/places/map')
   }
 
   const handleAddFav = async () => {
@@ -64,6 +64,8 @@ function PlaceShow() {
     await removeFav(place._id)
     setIsFav(false)
   }
+
+  console.log('hello', place)
 
   return (
     <>
@@ -133,40 +135,49 @@ function PlaceShow() {
                       </div>
                     )}
 
-
                   </section>
-
-                  {isLoggedIn && isFav ? (
-                    <button onClick={handleRemFav} className="button button-delete-fav">
-                      ✖ Delete from My Fav
-                    </button>
-                    
-                  ) : (
-                    <button onClick={handleAddFav} className="button button-add-fav">
-                      ♥ Add to My Fav
-                    </button>
-                  )}
-
-                  {isAuthorized && (
-                    <div>
-                      <Link to={`/places/${place._id}/review`}>
-                        <button className="button button-review"> ✒️ Review this place </button>
-                      </Link>
-                    </div>
-                  )}
                   
+                  <section>
+                    
+                    
+
+                    {isFav ? (
+                      <button onClick={handleRemFav} className="button button-delete-fav">
+                        ✖ Delete from My Fav
+                      </button>
+                      
+                    ) : (
+                      <button onClick={handleAddFav} className="button button-add-fav">
+                        ♥ Add to My Fav
+                      </button>
+                    )}
+
+                    { isLoggedIn ? (
+                      <div>
+                        <Link to={`/places/${place._id}/review`}>
+                          <button className="button button-review"> ✒️  Review this place </button>
+                        </Link>
+                      </div>
+                    ) : 
+                      ''
+                    }
+                                          
+                                      
+                    
+
+                  </section>  
                 </div>
                 
               </div>
+
+              
               
               <section className="section">
-                {/* {(reviews !== []) ? ( */}
-                <div className="container">
+
+                <div className="container mb-3">
                   <div className="title has-text-centered titles">Reviews:</div>
                 </div>
-                {/* ) : (
-                  ''
-                )} */}
+
 
                 <div className="columns is-multiline">
                   <div className="column is-one-quarter-desktop is-one-third-tablet">
