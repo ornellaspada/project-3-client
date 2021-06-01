@@ -165,24 +165,20 @@ function PlaceShow() {
                   
                 </div>
 
-                
-                
-                <section className="section">
-
-                  <div className="container mb-3">
-                    <div className="title has-text-centered titles">Reviews:</div>
-                  </div>
-                  {(reviews < 1) && <p className="title is-6 texts has-text-centered">No reviews yet. Add yours if you visited this place!</p>}
-
-
-                  <div className="columns is-multiline">
-                    <div className="column is-one-quarter-desktop is-one-third-tablet">
-                      {reviews.map(review => <ReviewsList key={review._id} {...review} />)}
-                    </div>
-                  </div>
-
-                </section>
               </div>
+              <section>
+                <div className="container mb-3">
+                  <div className="title has-text-centered titles">Reviews:</div>
+                </div>
+                {(reviews < 1) && <p className="title is-6 texts has-text-centered">No reviews yet. Add yours if you visited this place!</p>}
+
+
+                <div className="columns is-multiline">
+                  <div className="column is-one-quarter-desktop is-one-third-tablet">
+                    {reviews.map(review => <ReviewsList key={review._id} {...review} />)}
+                  </div>
+                </div>
+              </section>
             </div>
           )}
         </div>
