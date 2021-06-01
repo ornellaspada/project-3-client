@@ -29,6 +29,7 @@ function PlaceShow() {
         const res = await getSinglePlace(placeId)
         setPlace(res.data)
         setReviews(res.data.reviews)
+        setIsError(false)
       } catch (err) {
         setIsError(true)
       }
@@ -39,9 +40,13 @@ function PlaceShow() {
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const res = await checkFav(placeId)
-        console.log(res.data.isFav)
-        setIsFav(res.data.isFav)
+        if (isLoggedIn){
+
+          const res = await checkFav(placeId)
+          console.log(res.data.isFav)
+          setIsFav(res.data.isFav)
+          setIsError(false)
+        }
       } catch (err) {
         // setIsError(true)
         return <p>error</p>
@@ -64,9 +69,7 @@ function PlaceShow() {
     await removeFav(place._id)
     setIsFav(false)
   }
-
-  console.log('hello', place)
-
+  console.log(isLoggedIn)
   return (
     <>
       <section className="section">
@@ -152,25 +155,28 @@ function PlaceShow() {
                       </button>
                     )}
 
-                    { isLoggedIn ? (
-                      <>
-                        <div>
-                          <Link to={`/places/${place._id}/review`}>
-                            <button className="button button-review"> ✒️  Review this place </button>
-                          </Link>
-                        </div>
-                        <hr />
-                      </>
-                      
-                    ) : 
-                      ''
-                    }
-                                          
-                                      
+                  {isLoggedIn && isFav &&
+                    <button onClick={handleRemFav} className="button button-delete-fav">
+                      ✖ Delete from My Fav
+                    </button>}
                     
+                  
+                  {isLoggedIn && !isFav && <button onClick={handleAddFav} className="button button-add-fav">
+                      ♥ Add to My Fav
+                  </button>
+                  }
+                  
 
-                  </section>  
+                  {isLoggedIn && (
+                    <div>
+                      <Link to={`/places/${place._id}/review`}>
+                        <button className="button button-review"> ✒️ Review this place </button>
+                      </Link>
+                    </div>
+                  )}
+                  
                 </div>
+                </section>
                 
               </div>
 
