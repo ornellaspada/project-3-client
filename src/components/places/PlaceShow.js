@@ -48,12 +48,12 @@ function PlaceShow() {
           setIsError(false)
         }
       } catch (err) {
-        // setIsError(true)
-        return <p>error</p>
+        setIsError(true)
+        //return <p>error</p>
       }
     }
     getData()
-  }, [placeId])
+  }, [placeId, isLoggedIn])
 
   const handleDelete = async () => {
     await deletePlace(place._id)
@@ -118,7 +118,6 @@ function PlaceShow() {
 
 
                   <section>
-
                     {isOwner(place.user._id) && (
                       <div>
                         <div className="buttons">
@@ -137,66 +136,53 @@ function PlaceShow() {
                         </div>
                       </div>
                     )}
-
                   </section>
                   
                   <section>
-                    
-                    
 
-                    {isFav ? (
-                      <button onClick={handleRemFav} className="button button-delete-fav">
-                        ✖ Delete from My Fav
-                      </button>
+                    {isLoggedIn && isFav &&
+                        <button onClick={handleRemFav} className="button button-delete-fav">
+                          ✖ Delete from My Fav
+                        </button>
+                    }
+                        
                       
-                    ) : (
-                      <button onClick={handleAddFav} className="button button-add-fav">
-                        ♥ Add to My Fav
-                      </button>
-                    )}
+                    {isLoggedIn && !isFav && 
+                        <button onClick={handleAddFav} className="button button-add-fav">
+                          ♥ Add to My Fav
+                        </button>
+                    }
+                      
 
-                  {isLoggedIn && isFav &&
-                    <button onClick={handleRemFav} className="button button-delete-fav">
-                      ✖ Delete from My Fav
-                    </button>}
-                    
-                  
-                  {isLoggedIn && !isFav && <button onClick={handleAddFav} className="button button-add-fav">
-                      ♥ Add to My Fav
-                  </button>
-                  }
-                  
-
-                  {isLoggedIn && (
-                    <div>
-                      <Link to={`/places/${place._id}/review`}>
-                        <button className="button button-review"> ✒️ Review this place </button>
-                      </Link>
-                    </div>
-                  )}
+                    {isLoggedIn && (
+                      <div>
+                        <Link to={`/places/${place._id}/review`}>
+                          <button className="button button-review"> ✒️ Review this place </button>
+                        </Link>
+                      </div>
+                    )} 
+                  </section>
                   
                 </div>
-                </section>
+
                 
-              </div>
+                
+                <section className="section">
 
-              
-              
-              <section className="section">
-
-                <div className="container mb-3">
-                  <div className="title has-text-centered titles">Reviews:</div>
-                </div>
-                {(reviews < 1) && <p className="title is-6 texts has-text-centered">No reviews yet. Add yours if you visited this place!</p>}
-
-
-                <div className="columns is-multiline">
-                  <div className="column is-one-quarter-desktop is-one-third-tablet">
-                    {reviews.map(review => <ReviewsList key={review._id} {...review} />)}
+                  <div className="container mb-3">
+                    <div className="title has-text-centered titles">Reviews:</div>
                   </div>
-                </div>
+                  {(reviews < 1) && <p className="title is-6 texts has-text-centered">No reviews yet. Add yours if you visited this place!</p>}
 
-              </section>
+
+                  <div className="columns is-multiline">
+                    <div className="column is-one-quarter-desktop is-one-third-tablet">
+                      {reviews.map(review => <ReviewsList key={review._id} {...review} />)}
+                    </div>
+                  </div>
+
+                </section>
+              </div>
             </div>
           )}
         </div>
@@ -204,4 +190,5 @@ function PlaceShow() {
     </>
   )
 }
+
 export default PlaceShow
