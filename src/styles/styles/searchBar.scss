@@ -12,17 +12,21 @@
     font-weight: bold;
   }
 
-  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  ::-webkit-input-placeholder { 
     font-family: 'Cutive Mono', monospace;
   }
-  ::-moz-placeholder { /* Firefox 19+ */
+  ::-moz-placeholder { 
     font-family: 'Cutive Mono', monospace;
   }
-  :-ms-input-placeholder { /* IE 10+ */
+  :-ms-input-placeholder { 
     font-family: 'Cutive Mono', monospace;
   }
-  :-moz-placeholder { /* Firefox 18- */
+  :-moz-placeholder {
     font-family: 'Cutive Mono', monospace;
   }
   
+  .no-match {
+    font-family: 'Cutive Mono', monospace;
+    font-size:bold;
+  }
 }

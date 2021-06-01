@@ -20,7 +20,7 @@ function ReviewList({ text, image, userName, rating }) {
       )}
       
       <div className="card-content texts">
-          Reviewed by {userName}
+          Review by {userName}
       </div>
 
     </div>

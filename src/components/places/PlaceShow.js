@@ -21,7 +21,7 @@ function PlaceShow() {
   const [reviews, setReviews] = React.useState([])
   const [isError, setIsError] = React.useState(false)
   const isLoading = !place && !isError
-  const isLoggedIn = isAuthorized
+  const isLoggedIn = isAuthorized()
 
   React.useEffect(() => {
     const getData = async () => {
@@ -153,11 +153,15 @@ function PlaceShow() {
                     )}
 
                     { isLoggedIn ? (
-                      <div>
-                        <Link to={`/places/${place._id}/review`}>
-                          <button className="button button-review"> ✒️  Review this place </button>
-                        </Link>
-                      </div>
+                      <>
+                        <div>
+                          <Link to={`/places/${place._id}/review`}>
+                            <button className="button button-review"> ✒️  Review this place </button>
+                          </Link>
+                        </div>
+                        <hr />
+                      </>
+                      
                     ) : 
                       ''
                     }
@@ -177,6 +181,7 @@ function PlaceShow() {
                 <div className="container mb-3">
                   <div className="title has-text-centered titles">Reviews:</div>
                 </div>
+                {(reviews < 1) && <p className="title is-6 texts has-text-centered">No reviews yet. Add yours if you visited this place!</p>}
 
 
                 <div className="columns is-multiline">

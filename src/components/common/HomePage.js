@@ -8,7 +8,8 @@ function Home() {
   const [ bestPlaces, setBestPlaces ] = React.useState([])
   const [ allPlaces, setAllPlaces ] = React.useState([])
   const [ searchTerm, setSearchTerm ] = React.useState('')
-  const [ searched, setSearched ] = React.useState([])
+  const [ searchedPlaces, setSearchedPlaces ] = React.useState([])
+  const [ searched, setSearched ] = React.useState(false)
   const [ loading, setLoading ] = React.useState(false)
 
   React.useEffect(() => {
@@ -65,9 +66,10 @@ function Home() {
   console.log(filteredPlaces)
 
   const handleSearch = () => {
-    setSearched(filteredPlaces)
+    setSearchedPlaces(filteredPlaces)
+    setSearched(true)
   }
-  console.log(searched)
+  console.log(searchedPlaces)
 
   // ? if page is blank 
   if (loading) {
@@ -88,12 +90,13 @@ function Home() {
             
           </div>
         </div>
-        <div className="column is-one-quarter-desktop is-one-third-tablet">
-          {searched ? searched.map(result => {
-            return (
-              <>
+       
+        {searchedPlaces ? searchedPlaces.map(result => {
+          return (
+            <>
+              <div key={result._id} className="column is-one-quarter-desktop is-one-third-tablet">
                 <Link to={`/places/${result._id}`} >
-                  <div className="card show-page" key={result._id}>
+                  <div className="card show-page" >
                     <div className="card-header">
                       <h2 className="card-header-title titles">{result.name}</h2>
                     </div>
@@ -109,14 +112,18 @@ function Home() {
                   </div>
                 
                 </Link>
-              </>
-            )
-          })
-            :
-            ''
-          }
-          {(searched.length < 1) && <p className='texts'>Sorry, we have not found any match for your search</p>}
-        </div>
+              </div>
+            </>
+          )
+        })
+          :
+          ''
+        }
+        {(searchedPlaces.length < 1) && searched ? (
+          <p className='no-match has-text-centered title is-6'>Sorry, there is no match for your search yet.</p>
+        ) : ''
+        }
+        
       </section>
 
       <hr />
@@ -124,13 +131,14 @@ function Home() {
       <section className="section">
         <div className="container">
           <div>
-            <div className="title has-text-centered fav-title">Our favourite places:</div>
+            <div className="title has-text-centered fav-title">Five ★ places:</div>
           </div>
 
           <div className="columns is-multiline">
-            <div className="column is-one-quarter-desktop is-one-third-tablet">
-              {bestPlaces.map(place => (
-                <>
+            
+            {bestPlaces.map(place => (
+              <>
+                <div className="card-display column is-one-quarter-desktop is-one-third-tablet">
                   <Link to={`/places/${place._id}`} >
                     <div className="card mb-2 show-page" key={place._id}>
                       <div className="card-header">
@@ -147,9 +155,10 @@ function Home() {
                       </div>
                     </div>
                   </Link>
-                </>
-              ))}
-            </div>
+                </div>
+              </>
+            ))}
+            
           </div>
         </div>
       </section>
