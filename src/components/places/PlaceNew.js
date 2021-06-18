@@ -6,7 +6,7 @@ import { getCordinates } from '../../lib/api'
 
 function CreateNewPlace() {
   const history = useHistory()
-  const { formData, formErrors, handleChange, setFormErrors } = 
+  const { formData, formErrors, handleChange, setFormErrors } =
   useForm({
     name: '',
     area: '',
@@ -26,12 +26,12 @@ function CreateNewPlace() {
     const postCodeData = await getCordinates(formData.postcode)
     const postCodeResult = await postCodeData.data.result
     console.log(postCodeResult.region)
-    console.log(postCodeResult.admin_district)    
+    console.log(postCodeResult.admin_district)
     console.log(formData)
     try {
-      
-      const newFormData = { 
-        ...formData, 
+
+      const newFormData = {
+        ...formData,
         lat: Number(postCodeResult.latitude),
         long: Number(postCodeResult.longitude),
         area: postCodeResult.admin_ward,
@@ -47,7 +47,7 @@ function CreateNewPlace() {
       alert(error.response.data.message)
       setFormErrors(error.response.data.message)
     }
-  
+
   }
 
 
@@ -79,8 +79,8 @@ function CreateNewPlace() {
               <div className='field'>
                 <label className='label labels'>Description*</label>
                 <div className='control'>
-                  <input 
-                    className={`textarea ${formErrors.description ? 
+                  <input
+                    className={`textarea ${formErrors.description ?
                       'is-danger' : '' }`}
                     placeholder='Description'
                     name='description'
@@ -94,8 +94,8 @@ function CreateNewPlace() {
               <div className='field'>
                 <label className='label labels'>Rating*</label>
                 <div className='control'>
-                  <input 
-                    className={`input ${formErrors.rating ? 
+                  <input
+                    className={`input ${formErrors.rating ?
                       'is-danger' : '' }`}
                     placeholder='Rate the place between 1 and 5'
                     name='rating'
@@ -109,8 +109,8 @@ function CreateNewPlace() {
               <div className='field'>
                 <label className='label labels'>Address*</label>
                 <div className='control'>
-                  <input 
-                    className={`input ${formErrors.address ? 
+                  <input
+                    className={`input ${formErrors.address ?
                       'is-danger' : '' }`}
                     placeholder='Address'
                     name='address'
@@ -124,8 +124,8 @@ function CreateNewPlace() {
               <div className='field'>
                 <label className='label labels'>Postcode*</label>
                 <div className='control'>
-                  <input 
-                    className={`input ${formErrors.postcode ? 
+                  <input
+                    className={`input ${formErrors.postcode ?
                       'is-danger' : '' }`}
                     placeholder='Postcode'
                     name='postcode'
@@ -139,8 +139,8 @@ function CreateNewPlace() {
               <div className='field'>
                 <label className='label labels'>Image*</label>
                 <div className='control'>
-                  <input 
-                    className={`input ${formErrors.image ? 
+                  <input
+                    className={`input ${formErrors.image ?
                       'is-danger' : '' }`}
                     placeholder='Image Url'
                     name='image'
@@ -151,11 +151,11 @@ function CreateNewPlace() {
                   {formErrors.image}
                 </p>}
               </div>
-             
+
               <div className='field'>
                 <button type='submit' className='button-submit button is-success is-fullwidth'>
                   Submit your place!
-                </button> 
+                </button>
               </div>
             </form>
           </div>
