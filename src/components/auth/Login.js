@@ -21,7 +21,7 @@ function Login(){
       const res = await axios.post('/api/login', formData)
       console.log(res)
       setToken(res.data.token)
-      history.push('/places/map')
+      history.push('/flights')
     } catch (err) {
       console.log(err.response)
       setIsError(true)
@@ -30,6 +30,8 @@ function Login(){
   const handleFocus = ()=>{
     setIsError(false) 
   }
+
+    
 
   return (
     <section className="section">

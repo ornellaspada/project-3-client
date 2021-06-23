@@ -21,8 +21,7 @@ function PlaceEdit() {
   
   React.useEffect(() => {
     const getData = async () => {
-      try {
-        console.log('insideUseEffect')
+      try { 
         const res = await getSinglePlace(placeId)
         setFormData(res.data)
         console.log(res.data)
@@ -36,8 +35,6 @@ function PlaceEdit() {
     getData()
   }, [placeId, setFormData, setFormErrors])
 
-  // console.log(setFormErrors)
-  // console.log(setFormdata)
 
   const handleSubmit = async event => {
     event.preventDefault()
