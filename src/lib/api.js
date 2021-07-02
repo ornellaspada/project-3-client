@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { baseUrl } from '../config'
 
 
 import { getToken } from './auth'
