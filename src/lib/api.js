@@ -4,7 +4,7 @@ import { baseUrl } from '../config'
 
 import { getToken } from './auth'
 
-const baseUrl = '/api'
+// const baseUrl = '/api'
 
 function headers() {
   return {
